@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-// function overloading
+// function overloading allows us to use the same function name for many fuctions which do some slightly different tasks
 // an overloaded function must have
 //1 different type of parameters
 //2. different number of parameters
