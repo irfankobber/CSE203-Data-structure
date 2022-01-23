@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+
+// Pass by reference, here we use the values of &a and &b
+// Here the values of a and b  is not passed but a new a and b variable is created which points to the a and b of the main function
+//Here using ampersand symbol we can actually modifiy original a and b
+//
+//
+//
+
+void passByReference(int &a, int &b){
+    int z=a;
+    a=b;
+    b=z;
+    
+}
+
+void passByValue(int a , int b){
+    int z=a;
+    a=b;
+    b=z;
+    
+}
+
+
+int main(){
+    int a =7;
+    int b =6;
+    cout << "Before swapping "<<endl;
+    cout <<"a: "<<a<<endl;
+    cout << "b: "<<b<<endl;
+    
+    passByReference(a,b);
+
+    cout << "After swapping "<<endl;
+    cout <<"a: "<<a<<endl;
+    cout << "b: "<<b<<endl;
+    
+
+    
+    return 0;
+}
