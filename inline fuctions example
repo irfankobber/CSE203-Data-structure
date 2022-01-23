@@ -1,0 +1,41 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+
+using namespace std;
+
+inline int add(int a, int b)// inline function basically copies the whole function to main function so the main doesnt have to look for the function in other memory locations hence time is saved
+{
+    return (a+b);
+}
+
+
+int maximum(int a, int b);
+
+
+int main()
+{
+    cout<<"Hello World";
+    int a , b ;
+    cout <<"Enter two numbers /n"<<endl;
+    cin>>a>>b;
+    
+    cout <<" The addition of the two numbers are "<< add(a,b);
+    return 0;
+}
+int maximum(int x, int y){
+ 
+    if (x>y){
+        return x;
+    }   
+    else{
+        return y;
+    }
+    
+}
