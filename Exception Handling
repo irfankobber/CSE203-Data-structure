@@ -1,0 +1,35 @@
+/******************************************************************************
+
+
+*******************************************************************************/
+#include <iostream>
+
+using namespace std;
+//exception handling is used when there is an unexpected problem in an exceution of a program
+
+// try block- a block of code that may cause an exception is placed in a try block
+//catch block - a block  catches the exception from the TRY block
+// a progrom throws an exception when a problem shows up this is done using a throw keyword
+// every try catch should have a coreesponding catch block. A single try block can have mulitple catch blocks
+
+
+int main()
+{
+    int numberator, denominator;int result;
+    cout <<" Enter numberator and denominator "<<endl;
+    cin>>numberator>>denominator;
+    try{
+        if (denominator==0){
+            throw denominator;// if denominator is 0 then the control shifts to the catch block
+        }
+     result = numberator/denominator; // here in this line of code the exception is most likely to happen so it's in the try block
+    }
+    catch(int exceptionn){
+        cout <<" Division by zero is not allowed \n"<<endl;
+    }
+    
+    cout <<"Division is "<<result<<endl;
+    
+
+    return 0;
+}
