@@ -1,0 +1,112 @@
+/******************************************************************************
+
+---------------------------------constructors---------------------------
+
+A consturctor is a member functions of a class which initializes objects of a class. In C++,
+a constructor is automatically called when object is created. It is a special member function of the class
+
+----------------How are consturctors different from normal functions----------------------------
+
+a constuctor has same name as the class itself
+a consturcotr don't have a return type
+a consturctor is automatically called when an object is created
+if we don't create a consturctore c++ compiler generates a default consturcture for using
+
+----------------------3 types of contructor---------------------------------------
+
+1. default consturcture- these don't take any arguments, it has no parameters
+2. Parameterized conturcture- these take arguments. they typically help to initialize an object.
+3. copy consturcture- A copy contructor is a member function which initialize an object using another object of the same class.
+
+----------------------------------Destructors---------------------------------------------------
+ A desturcture is a member function which destructs or delets an object.
+ 
+ a destructuer is called when a 
+    function ends, or bolck containing local variable ends or if a delete operator is called .
+    
+    --------------------------------------------Properties----------------
+    
+    a destructor have a same name as the class preceded by a tilde (~)
+    destructors don't take any arguments and don't return anything
+    
+    There can only be one destructor in a class
+    
+-----------------------------why do we need to write a ----------------------------------Destructors---------------------------------------------------
+
+Usually we don't need to write it. the default desturctor works fine to delete all the occupied memory.
+But, if we have created dynamically allocated memory or pointer in class we need it to release the memory before the class instance is destroyed to avoid memory leak
+
+*******************************************************************************/
+#include <iostream>
+#include <string>// include for string class 
+
+
+
+using namespace std;
+
+
+class Cars{
+    
+    // all the below values in this class are private
+    private://  this is the access specifier 
+    //the below strings, ints are called member variables or data members
+    string company_name;
+    string model_name;
+    string fuel_type;
+    float mileage;
+    double price;
+    
+    public:
+        Cars(){// normal consturctor
+            //cout <<" Default constructor is called "<<endl;
+            company_name="toyota";
+            //model_name="PRUIS";
+            //fuel_type="petrol";
+            //mileage=0;
+            //price=9000000;
+            
+        }
+        
+        Cars(string cname, string mname, string ftype, float m, double p){
+           company_name=cname; 
+            model_name=mname;
+            fuel_type=ftype;
+            mileage=m;
+            price=p;
+            
+        }
+    //these fuctions are called member fuctions
+        void setData(string cname, string mname, string ftype, float m, double p){
+            company_name=cname;
+            model_name=mname;
+            fuel_type=ftype;
+            mileage=m;
+            price=p;
+            
+        }
+        
+        void displayData(){
+            
+            cout <<"\n Displaying Car Properties "<<endl<<endl;
+            cout <<"Car Company Name - "<<company_name<<endl;
+            cout <<"Car Model Name - "<< model_name << endl;
+            cout <<"fuel_type - "<<fuel_type<<endl;
+            cout <<"mileage - "<<mileage<<endl;
+            cout <<"car Price - "<<price <<endl;
+        }
+    
+};
+
+
+int main()
+{
+    Cars car1;//objects are nothing but variables of type Cars
+    car1.setData("toyota", "pruis", "petrol", 15.5 , 20000);//using the setdata function for setting data for car1
+    car1.displayData();
+    
+    Cars car2("Toyota","NEW celica", "Jet fuel", 25.2, 90999);// using the Parameterized constructor to set data for car 2
+    car2.displayData();
+    
+
+    return 0;
+}
