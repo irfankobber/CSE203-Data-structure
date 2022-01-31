@@ -1,0 +1,11 @@
+Polymorphism in c++
+poly means multiple and morphism means forms so multiple forms
+
+in simple words polymorphism means that the ability of a message to be displayed in more than one form. 
+
+In c++, an operator or function can be given different meanings
+
+polymophism can be divided into two different parts
+
+1. compile time polymorphism- includes function overloading, operator overloading and templates.
+2. runtime polymorphism - includes function overriding
