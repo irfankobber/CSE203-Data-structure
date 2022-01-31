@@ -1,0 +1,67 @@
+#include <iostream>
+using namespace std;
+
+/*
+
+-------------------virtual functions -----------------
+
+A virtual function is a member function which is declared within a base class and is re defined by derived class
+
+when u refer to a derived class object using a pointer or a reference to the base class, you can call a virtual function for that object and execute the derived dclass's version of the fucntion
+
+virtual functions ensure that the correct function is called for an object regardless of the type of reference or pointer used for function call.
+
+they are mainly used to achieve runtime polymorphism
+
+
+a class is abstract if it has at least one pure virtual function
+we can have pointers and references of abstract class type 
+
+if we do not override the pure virtual function in derived class, then derived class also becomes abstract class
+abstract class cant be instantiated
+*/
+
+class MyBase{
+    
+    public:
+            void show(){
+                 cout <<" Base class show function called "<<endl;
+                 
+            }
+            
+            virtual void print(){//virtual function
+                
+                    cout <<" Base class Print function called "<<endl;
+            }
+    
+};
+
+class MyDerived : public MyBase{
+    
+    public:
+            void show(){
+                 cout <<" derived class show function called "<<endl;
+                 
+            }
+            
+            virtual void print(){//virtual function
+                
+                    cout <<" derived class Print function called "<<endl;
+            }
+    
+}
+;
+
+int main(){
+        
+        MyBase *baseptr;
+        MyDerived derivedobj;
+        //runtime polymorphism
+        baseptr=&derivedobj;
+        baseptr->print();// derived class print function called 
+        baseptr-> show();//base class show function called 
+        
+    
+  
+    return 0;
+}
