@@ -1,0 +1,55 @@
+#include<iostream>
+using namespace std;
+
+/*-------------------------Friend Functions--------------------------------------
+
+a friend function of a class is defined outside that class scope but it has the right to access all private and protected members of the class
+
+even though the prototypes for friend functiosn appear in the class definition friends are not member Functions--------------------------------------
+
+
+we need friend fuunction when class's private data needs to be accessed directly without using object of that class.
+
+
+
+
+
+
+
+
+*/
+
+class Distance{
+    
+    private:
+        int meter;
+    
+    public:
+        Distance(){
+            meter =0;
+            
+        }
+        
+        void displayData(){
+            cout <<" Meters value : "<< meter<<endl;
+        }
+        
+        friend void addValue(Distance &d); //Function prototype of friend function
+    
+};
+
+void addValue(Distance &d){
+    d.meter= d.meter+5;
+}
+
+int main(){
+   
+   Distance d1;
+   d1.displayData();
+   cout <<" Calling the friend function "<<endl;
+   addValue(d1);
+   d1.displayData();
+   
+    
+    return 0;
+}
