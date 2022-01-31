@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+class Animal{
+    
+    public:
+             virtual void eat(){// if we didn't use virtual here we would have to create the function1 three times for animals, cats and dogs so using this we can use the same function for three classes.
+                cout <<
+                " I am eating general food "<<endl;
+                
+            }
+    
+    
+};
+
+class Cat: public Animal {
+    
+    public:
+            void eat(){
+                cout <<" I'm eating a rat "<<endl;
+            }
+    
+};
+
+class Dog: public Animal{
+    public:
+            void eat(){
+                cout <<" I am eating dog food "<< endl;
+            }
+};
+
+void function1 (Animal *xyz){
+    xyz->eat();
+}
+
+int main(){
+        
+        Animal *ptr;
+        Cat catobj;
+        Dog dogobj;
+        
+        ptr=&catobj;
+        function1(ptr);
+        
+    
+  
+    return 0;
+}
