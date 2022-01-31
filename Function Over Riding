@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+
+/*
+
+-------------------function overloading------------------
+
+it's a feature of c++ where two or more functions can have the same name but different parameters
+
+function overloading can be considered as an example of polymorphism feature in c++
+
+---------------------------function overriding------------------------------------
+
+If derived class defines the same function as its base class then it is known as function overriding 
+
+if u create an object of the drived class and call the member function which exists in both classes
+(base and derived), the member function of the dreived class in invoked and the function of the ase class is ignored
+
+it enables you to provide specific implementation of the function which is laready provided by its base class
+
+
+
+*/
+
+class Animal{
+    public:
+        void makeSound(){
+            cout <<" Animals are making sounds " <<endl;
+            
+        }
+    
+};
+
+class Dog : public Animal{
+    
+    public:
+        void makeSound(){
+            cout <<" Dogs bark!!"<<endl;
+        }
+    
+};
+
+class Cat : public Animal{
+    
+    public:
+        void makeSound(){
+            cout <<" Cats do a meaw sound "<<endl;
+        }
+    
+};
+
+
+int main(){
+    
+    Animal a1;
+    a1.makeSound()
+;
+Dog d1;
+d1.makeSound();
+Cat c1;
+c1.makeSound();
+    return 0;
+}
