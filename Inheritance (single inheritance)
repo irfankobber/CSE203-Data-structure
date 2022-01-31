@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+
+/*
+-----------------------------------Inheritance------------------------------------
+Inheritance allows us to define a class in terms of another class
+Provides Reusability and maintainibility of code
+
+The class from which the new class inherits properties(data members and member functions)
+is  called the base class.
+
+the newly created class is called the derived class.
+
+there are 5 types of inheritance ;
+
+*/
+
+/*
+Private data member of base can never go to child
+
+
+*/
+
+class Shape{
+    protected:
+        int width; int height;
+    public:
+        void setWidth(int w){
+            width = w;
+        }
+        
+        void setHeight(int h){
+            height = h;
+        }
+    
+};
+
+//derived class
+class Rectangle: public Shape{
+    public:
+        int getArea(){
+            return (width*height);
+        }
+    
+};
+
+
+int main (){
+    Rectangle r1;
+    r1.setWidth(5);
+    r1.setHeight(7);
+    
+    cout <<" Total area of rectanle "<< r1.getArea() << endl;
+    
+    return 0;
+}
+
