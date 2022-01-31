@@ -1,0 +1,81 @@
+#include<iostream>
+using namespace std;
+
+/*inheritance and access specifiers
+
+the public part is accessable in the class and also outside the class directly
+
+the protected  part can be used with inheritance so it is not as restricted as private or as open as public, because the derived class also gets those properties which are in protected mode as well
+
+the private members are never inherited .
+
+
+
+
+
+
+
+*/
+
+class MyBaseClass{
+    
+    public:
+        int x;
+        MyBaseClass(){
+            x=0;y=0;z=0;
+            
+        }
+        
+        void printProtectedData(){
+            cout <<"Y: "<<y<<endl;
+        }
+        
+        void printPrivateData(){
+            cout <<"Z "<<z<<endl;
+        }
+        
+    protected:
+        int y;
+    private:
+        int z;
+        
+    
+};
+
+/*class MyDerivedClass : public MyBaseClass{
+    //when we are doing this all of the above except private and constructor are gonna come over here 
+    //so we have public x and protected y
+};*/
+
+/*class MyDerivedClass : protected MyBaseClass{
+    // here x is now also protectedd so none can be accessed
+};*/
+
+class MyDerivedClass : private MyBaseClass{
+    // here x is now also private so none can be accessed
+};
+
+
+
+
+void myOutsideFunction(MyBaseClass obj){
+    
+    
+    cout <<"X "<<obj.x<<endl;
+    //cout <<"Y "<<obj.y<<endl;
+    //cout <<"Y ";
+    obj.printPrivateData();
+    //cout <<"Z "<<obj.z<<endl;
+    
+}
+
+
+int main(){
+    
+    MyBaseClass obj1;
+    myOutsideFunction(obj1);
+    MyDerivedClass obj2;
+    cout <<"X "<<obj2.x<<endl;
+    
+    return 0;
+}
