@@ -1,0 +1,59 @@
+#include<iostream>
+using namespace std;
+
+/*
+
+Multiple Inheritance
+
+Here properties from two or more class is inherited to the derived class.
+
+
+*/
+
+class A{
+        public:
+                void PrintMessage(){
+                        cout  << " Class A print message function " <<endl;
+                }
+    
+};
+
+//base class2 
+
+class B{
+    public:
+            void PrintMessage(){
+                cout <<" Class B PrintMessage function "<<endl;
+            }
+    
+};
+
+class AB : public A, public B {
+    public:
+        /*void PrintMessage(){//function overriding 
+            cout <<" class ab pring message "<<endl;
+        }*/
+        
+        //printmessage() -> class A
+        // printmessage() -> class B 
+        // this causes ambiguity problem
+        // to solve this problem we use the function below that uses scope resolution operator
+        void PrintMessage(){
+            
+            A::PrintMessage();
+            B::PrintMessage();
+            cout <<" Class ab print message "<< endl;
+            
+        }
+    
+};
+
+
+int main(){
+    
+    AB obj;
+    obj.PrintMessage();
+    
+    
+    return 0;
+}
