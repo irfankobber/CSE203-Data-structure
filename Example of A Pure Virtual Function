@@ -1,0 +1,61 @@
+#include<iostream>
+using namespace std;
+
+/*
+
+Sometimes implementation of all function cannot be provided in a base class because we don't know the implementation. such a class is called an abstarct class. 
+
+A pure virtual function in C++ is a virtual function for which we don't have implementation we only declare it.
+
+
+
+*/
+
+class Shape{
+    
+    public:
+            virtual void getArea()=0;// this means there is no implementation of this function in this class this is a pure virtual function
+            // we can't create an object of this class.
+    
+    
+};
+
+class Circle:public Shape{
+    public:
+            void getArea(){
+                cout <<" Enter circle radius "<<endl;
+                int r;
+                cin>>r;
+                cout <<" Area of circle is "<<3.14*r*r << endl;
+                
+            }
+    
+};
+
+class Rectangle: public Shape{
+    public:
+            void getArea(){
+                 cout <<" Enter lenght and breadth "<<endl;
+                 int  l,b;
+                 cin>>l>>b;
+                 cout <<" Area "<<l*b <<endl;
+                 
+            }
+};
+
+
+
+int main(){
+    
+    Circle c1;
+    
+    c1.getArea();
+    
+    Rectangle r1;
+    
+    r1.getArea();
+    
+    
+    
+    return 0;
+}
