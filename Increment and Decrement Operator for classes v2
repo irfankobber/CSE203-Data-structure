@@ -1,0 +1,72 @@
+#include<iostream>
+using namespace std;
+
+/*
+-------------------unary operator overloading--------------------
+
+*/
+class Weight{
+    private:
+        int kg;
+    public:
+        Weight(){
+            kg = 0;
+        }
+        
+        Weight(int k){
+            kg=k;
+        }
+    void printWeight(){
+        cout <<" Weight in KG : "<< kg << endl;
+    }
+    
+    Weight  operator ++(){
+        Weight temp;
+        
+        temp.kg=++kg;
+        return kg;
+        
+    }
+    Weight operator ++(int){
+        Weight temp;
+        temp.kg=kg++;
+        
+         return temp;
+        
+    }
+     Weight operator --(){
+       Weight temp;
+        temp.kg=--kg;
+        
+         return temp;
+        
+    }
+    Weight operator --(int){
+         Weight temp;
+        temp.kg=kg--;
+        
+         return temp;
+    }
+};
+
+
+int main(){
+    /*
+    suppose x,y=0;
+    if y=++x; in this line x=0, y=-0 after this line y=0, x=char16_t
+    this is  pre increment
+    
+    */
+   
+    Weight obj1, obj2;
+    obj1=obj2++;
+    obj1.printWeight();
+    
+    //if we want to do obj2=++obj1; then we have to use different method which returns Weight type 
+    
+    
+    
+    
+    
+    return 0;
+}
