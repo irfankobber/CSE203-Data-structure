@@ -1,0 +1,47 @@
+#include<iostream>
+using namespace std;
+
+/*
+-------------------Template--------------------
+it is the foundation of generic programming 
+which involves writing a code in a way that is independent of any particular type
+two types of template function template and class template 
+
+in function template data is particular
+helps us to write the function only once for every data types
+
+*//*
+
+int add(int x, int y){
+    return x+y;
+}
+
+float add(float x, float y){
+    return x+y;
+}
+
+double add(double x, double y){
+    return x+y;
+}*/
+
+template <typename T>//here T is the placeholder
+T add(T x, T y){
+    
+    return x+y;
+}// Datatype is placeholder T, x and y are the parameters passed
+
+
+
+int main(){
+  
+   cout <<" Addition is "<< add<int>(3,5);
+   cout << endl;
+    cout <<" Addition is "<< add<float>(3.1f,5.1f);
+    cout  << endl;
+     cout <<" Addition is "<< add<double>(3.124,5.523);
+   
+    
+    
+    
+    return 0;
+}
