@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+/*
+-----------------------------------Static Data FUnctions in C++-----------------------------------
+
+By declaring a member function as static you make it independent of any particular object of the class.
+
+A static member function can be called even if no objects of the class exist and the static functions are accessed using only the class name and the scope resolution operator ::
+
+Also A static member function can only access static data members other static member functions and any other functions from outside the class
+static member functions have a class scope and they do not have access to the THIS pointer of the class
+you could yse a static member function to determie whether some objects of the class have been created or not
+
+
+
+*/
+
+
+class MyClass{
+    
+    private:
+    int x;
+            static int count;
+    
+   public:
+            
+            
+            MyClass(){
+                count++;
+            }
+            
+            static int getCount(){
+                return count;
+            }
+            
+};
+
+int MyClass::count = 0; // initialzing static int count variable, we have to do this outside of the class
+
+
+
+
+int main(){
+    cout <<" Initial count " << MyClass::getCount()<<endl;
+    
+    MyClass obj1;
+    
+    cout <<" Initial count after one object  " << MyClass::getCount()<<endl;
+    
+    MyClass obj;
+    
+    return 0;
+}
