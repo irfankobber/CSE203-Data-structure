@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+/*
+
+
+*/
+class base{
+    
+    protected:
+            int val;
+            
+};
+
+class derived1 : virtual public base{
+    
+    public:
+            derived1(){
+                val =1;
+            }
+            void getValue(){
+                cout <<" the value of derived 1 is "<< val << endl;
+            }
+      
+};
+
+class derived2 : virtual public base{
+  
+    public:
+        derived2(){
+            val=2;
+        }
+         void getValue(){
+                cout <<" the value of derived 2 is "<< val << endl;
+            }
+};
+//if we want just one copy of val in derived3 class then we have to use the virtual keyword in direved 1 and 2
+//so it's gonna always print 2 
+//if we want 1 to be printed always 
+// we have to use the following signature for the class
+//class derived3 : public derived 2, public derived 1{};
+//the rightmost class which is inheritied it's value will always be inherited 
+class derived3 : public derived1, public derived2{
+  //since derived 3 is inheriting from both derived 1 and 2 this means there's two copies of derived 3
+    public:
+        void getValue(){
+            
+            cout << " Int value is ";
+            derived1::getValue();
+            cout << endl;
+            
+            
+        }
+    
+};
+
+
+int main(){
+    
+    derived3 obj;
+    obj.getValue();
+    
+    return 0;
+}
