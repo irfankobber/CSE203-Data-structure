@@ -1,0 +1,55 @@
+#include<iostream>
+using namespace std;
+
+/*
+------------------- Class Template--------------------
+it is the foundation of generic programming 
+
+some times we need a class implementation that is same for all classe only the data types used are different 
+no need to create different classes for the same thing
+
+*//*
+
+int add(int x, int y){
+    return x+y;
+}
+
+float add(float x, float y){
+    return x+y;
+}
+
+double add(double x, double y){
+    return x+y;
+}*/
+
+template <typename T>
+class Weight{
+    private:
+        T kg;
+        public:
+            void setData(T x){
+                kg=x;
+            }
+            
+            T getData(){
+                return kg;
+            }
+    
+};
+
+
+int main(){
+  
+  Weight <int> obj1;
+  obj1. setData(5);
+  cout <<" value is "<< obj1.getData();
+  
+  Weight <double> obj2;
+  obj2.setData(2.35);
+  cout <<" value is "<< obj2.getData();
+   
+    
+    
+    
+    return 0;
+}
