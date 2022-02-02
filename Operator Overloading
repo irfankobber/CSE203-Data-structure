@@ -1,0 +1,78 @@
+#include <iostream>
+using namespace std;
+/*
+-----------------------------------operator overloading (kinda polymorphism) in C++-----------------------------------
+
+similar to function overloading
+
+cpp allows you to specify more than one defination for an operator in the same scope which is called operator overloading 
+
+you can redifine or overload most of the built in operators available in cpp
+
+it is a type of polumorphism in which operator is overloaded to give user defined meaning to it
+
+
+allmost all operators can be overloaded except 
+
+scope operators ::
+sizeof
+member selctor  .
+
+member pointer selector *
+
+ternary operator ?:
+
+
+*/
+
+
+class Complex{
+  private:
+    int real, imag;
+    public:
+        Complex(){
+            real = 0 ; 
+            imag =0;
+            
+        }
+         Complex(int r, int i){
+             real =r;
+             imag = i;
+             
+         }
+         
+        void print(){
+            cout << real <<" + "<< imag <<" i "<< endl;
+        } 
+        //operator overloading syntax
+        Complex operator +(Complex c){
+            Complex temp;
+            temp.real=real+c.real;
+            temp.imag=imag+c.imag;
+            return temp;
+        }
+};
+
+
+int main(){
+    
+    Complex c1(5,4);
+    Complex c2(2,5);
+    //Complex c3;
+    //c3 = c1 + c2; //this doesn't work we need operator overlader to make this work
+                    // compiler now sees this as c1.add(c2)
+    Complex c3(1,1);
+    Complex c4;
+    c4= c1+c2+c3; //at first c2.add(c3) happens
+    // then c4= c1.add(c2.add(c3));
+    c4.print();
+  // below are the primitive data types where the operators work properly  
+    int x=5;
+    int y=4;
+    int z=x+y;
+    
+    cout << 
+    " val of z is "<< z <<endl;
+    
+    return 0;
+}
